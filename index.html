@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | E-commerce product page</title>
+
+  <!-- Link fonts -->
+  <link rel="stylesheet" href="https://fonts.google.com/specimen/Kumbh+Sans">
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+  <!-- Link CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="header">
+    <!-- Logo -->
+    <img src="./images/logo.svg" alt="Sneakers" class="logo">
+    <div class="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="#" class="nav-link">Collections</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Men</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Women</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+    <!-- Cart icon -->
+    <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg" class="nav-cart-icon">
+      <path
+        d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+        fill="#69707D" fill-rule="nonzero" />
+    </svg>
+    <span class="cart-num" id="topActionCartNum">0</span>
+    <div class="cart-menu">
+      <p class="cart-title">Cart</p>
+      <div class="cart-detail">
+        <p class="empty-detail">Your cart is empty.</p>
+        <div class="bill-details">
+          <div class="product-detail">
+            <div class="theme-image-cart">
+              <img src="" alt="">
+            </div>
+            <div class="product-info">
+              <p class="product-title-cart"></p>
+              <span class="product-price-cart">
+              </span>
+              <span class="sum-cart"></span>
+            </div>
+            <div class="delete-icon-cart">
+              <img src="./images/icon-delete.svg" alt="Delete Icon">
+            </div>
+            <div class="checkout-btn">
+              Check out
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <!-- Avatar img -->
+    <img src="./images/image-avatar.png" alt="User's Avatar" class="user-avatar">
+    <!-- Hamburger Menu 
+    <div class="hamburger" id="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div> -->
+  </nav>
+
+  <section class="container">
+    <!-- Slideshow gallery  -->
+    <div class="container-1">
+      <!-- Images used to open the light box -->
+      <div class="image-gallery">
+        <div class="big-images">
+          <img src="./images/image-product-1.jpg" id="Product1" class="big-image" onclick="openModal();currentSlide(1)">
+          <img src="./images/image-product-2.jpg" id="Product2" class="big-image" onclick="openModal();currentSlide(2)">
+          <img src="./images/image-product-3.jpg" id="Product3" class="big-image" onclick="openModal();currentSlide(3)">
+          <img src="./images/image-product-4.jpg" id="Product4" class="big-image" onclick="openModal();currentSlide(4)">
+        </div>
+        <div class="row">
+          <a class="column" href="#Product1">
+            <img src="./images/image-product-1-thumbnail.jpg" onclick="openModal();currentSlide(1)">
+          </a>
+          <a class=" column" href="#Product2">
+            <img src="./images/image-product-2-thumbnail.jpg" onclick="openModal();currentSlide(2)">
+          </a>
+          <a class="column" href="#Product3">
+            <img src="./images/image-product-3-thumbnail.jpg" onclick="openModal();currentSlide(3)">
+          </a>
+          <a class="column" href="#Product4">
+            <img src="./images/image-product-4-thumbnail.jpg" onclick="openModal();currentSlide(4)">
+          </a>
+        </div>
+      </div>
+      <!-- The modal/Light box -->
+      <div class="modal" id="myModal">
+        <div class="close cursor" onclick="closeModal()">
+          <svg width="14" height="15" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#69707D" fill-rule="evenodd" />
+          </svg>
+        </div>
+        <div class="modal-content">
+          <div class="mySlides">
+            <img src="./images/image-product-1.jpg" id="Product1" class="big-image">
+          </div>
+          <div class="mySlides">
+            <img src="./images/image-product-2.jpg" id="Product2" class="big-image">
+          </div>
+          <div class="mySlides">
+            <img src="./images/image-product-3.jpg" id="Product3" class="big-image">
+          </div>
+          <div class="mySlides">
+            <img src="./images/image-product-4.jpg" id="Product4" class="big-image">
+          </div>
+          <!-- Next/Previous controls -->
+          <a onclick="plusSlides(-1)" class="prev">
+            <svg width="12" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11 1 3 9l8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"
+                class="prevIcon" />
+            </svg>
+          </a>
+          <a onclick="plusSlides(1)" class="next">
+            <svg width="13" height="18" xmlns="http://www.w3.org/2000/svg">
+              <path d="m2 1 8 8-8 8" stroke="#1D2026" stroke-width="3" fill="none" fill-rule="evenodd"
+                class="nextIcon" />
+            </svg>
+          </a>
+          <!-- Thumnail images control -->
+          <div class="row">
+            <div class="column">
+              <img src="./images/image-product-1-thumbnail.jpg" class="demo" oncick="currentSlide(1)" alt="Product 1">
+            </div>
+            <div class="column">
+              <img src="./images/image-product-2-thumbnail.jpg" class="demo" oncick="currentSlide(2)" alt="Product 2">
+            </div>
+            <div class="column">
+              <img src="./images/image-product-3-thumbnail.jpg" class="demo" oncick="currentSlide(3)" alt="Product 3">
+            </div>
+            <div class="column">
+              <img src="./images/image-product-4-thumbnail.jpg" class="demo" oncick="currentSlide(4)" alt="Product 4">
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="container-2">
+      <span class="company-name">Sneaker Company</span>
+      <h1 class="product-title">
+        Fall Limited Edition Sneakers
+      </h1>
+      <p class="product-detail">These low-profile sneakers are your perfect casual wear companion. Featuring a
+        durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+      <div class="product-price">
+        <div class="pay-discount">
+          <span class="pay-price">$<span class="price-num">125.00</span></span>
+          <span class="discount-price">50%</span>
+        </div>
+        <span class="real-price">$250.00</span>
+      </div>
+      <div class="quantity-add">
+        <div class="product-quantity">
+          <img src="./images/icon-minus.svg" alt="Minus icon" class="minus-icon">
+          <span class="number-item">0</span>
+          <img src="./images/icon-plus.svg" alt="Plus icon" class="plus-icon">
+        </div>
+        <div class="add-cart">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fill="#69707D" fill-rule="nonzero" class="cart-path" />
+          </svg>
+          <span>Add to cart</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Emily Lu</a>.
+  </div>
+  <!-- JS link -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
